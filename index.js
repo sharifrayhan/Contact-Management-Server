@@ -32,6 +32,16 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
+const contactsController = require("./src/controllers/contactsController");
+
+
+// Users
+app.get("/contacts", contactController.allContacts);
+app.post("/contacts", contactController.createContact);
+app.put("/contacts/:id", contactController.updateContact);
+app.get("/contacts/:id", contactController.singleContact);
+app.delete("/contacts/:id", contactController.deleteContact);
+
 
 
 app.get("/", (req, res) => {
