@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const contactSchema = new mongoose.Schema({
+const favouriteSchema = new mongoose.Schema({
   Name: { type: String, required: true },
   Email: { type: String, required: true },
   Phone: { type: Number, required: true },
@@ -9,6 +9,6 @@ const contactSchema = new mongoose.Schema({
 
 });
 
-const Contact = mongoose.model("contacts", contactSchema);
+const Favourite = mongoose.model("favourites", favouriteSchema);
 
-module.exports = Contact;
+module.exports = Favourite;

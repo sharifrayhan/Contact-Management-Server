@@ -1,4 +1,4 @@
-const Contact = require('../models/Contact');
+const Contact = require("../models/Contact");
 
 // Get all contacts
 const allContacts = async (req, res) => {
@@ -6,7 +6,7 @@ const allContacts = async (req, res) => {
     const contacts = await Contact.find();
     res.json(contacts);
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -18,12 +18,12 @@ const singleContact = async (req, res) => {
     const Contact = await Contact.findById(ContactId);
 
     if (!Contact) {
-      return res.status(404).json({ error: 'Contact not found' });
+      return res.status(404).json({ error: "Contact not found" });
     }
 
     res.json(Contact);
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -32,9 +32,9 @@ const createContact = async (req, res) => {
   try {
     const newContact = new Contact(req.body);
     await newContact.save();
-    res.status(201).send('Contact created successfully');
+    res.status(201).send("Contact created successfully");
   } catch (error) {
-    res.status(500).send('Internal Server Error');
+    res.status(500).send("Internal Server Error");
   }
 };
 
@@ -43,17 +43,21 @@ const updateContact = async (req, res) => {
   const ContactId = req.params.id;
 
   try {
-    const updatedContact = await Contact.findByIdAndUpdate(ContactId, req.body, {
-      new: true,
-    });
+    const updatedContact = await Contact.findByIdAndUpdate(
+      ContactId,
+      req.body,
+      {
+        new: true,
+      }
+    );
 
     if (!updatedContact) {
-      return res.status(404).json({ error: 'Contact not found' });
+      return res.status(404).json({ error: "Contact not found" });
     }
 
     res.json(updatedContact);
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -65,12 +69,12 @@ const deleteContact = async (req, res) => {
     const deletedContact = await Contact.findByIdAndDelete(ContactId);
 
     if (!deletedContact) {
-      return res.status(404).json({ error: 'Contact not found' });
+      return res.status(404).json({ error: "Contact not found" });
     }
 
-    res.json({ message: 'Contact deleted successfully' });
+    res.json({ message: "Contact deleted successfully" });
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
