@@ -12,7 +12,7 @@ To run this project locally make sure you have the following installed on your m
 ## Getting Started
 
 After cloning the repository 
-**Replace example.env file with your own database and other links**
+**Replace example.env file with your own database and other links and**
 **Install project dependencies:**
 
    ```bash
